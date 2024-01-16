@@ -1,0 +1,1100 @@
+:root{
+    --transition: all 300ms ease;
+    --container-width-lg: 74%;
+    --back-color: rgb(26, 26, 26);
+    --posts-title-font-size: 2.5rem;
+    --posts-title-font-size-2: 1.7rem;
+    --header-back-color: yellow;
+    --nav-back-color: gray;
+    --nav-profile-back-color: gray;
+    --featured-back-color: rgb(82, 82, 82);
+    --post-back-color:  rgb(27, 27, 27);
+    --category-back-color: rgb(16, 16, 16);
+    --category-btn-back-color: rgb(78, 7, 7);
+    --footer-back-color: rgb(24, 24, 24);
+    --footer-nav-font-color: rgb(143, 143, 143);
+    --featured-body-font-color: rgb(214, 213, 213);
+    --color-red:red;
+    --color-red-light: rgb(96, 27, 27);
+    --color-green:green;
+    --color-green-light: rgb(9, 51, 9);
+    --gray-color:  rgb(19, 18, 18);
+    --border-radius: 2rem;
+    --secondary: rgb(44, 44, 44);
+}
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+  
+}
+
+
+.container{
+    width: var(--container-width-lg);
+    max-width: 1800px;
+    margin-inline: auto;
+}
+
+section{
+    
+    width: 100%;
+}
+
+ul{
+    list-style: none;
+    
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    font-size: large;
+    font-weight: bold;
+    
+}
+
+h1, h2, h3, h4, h5, h6{
+    color: white;
+    line-height: 1.3;
+}
+
+h1{
+    font-size: 3rem;
+    margin: 1rem 0;
+}
+
+h2{
+    font-size: var(--posts-title-font-size-2);
+    margin: 1rem 0;
+}
+
+h3{
+    font-size: 1.1rem;
+    margin: 0.8rem 0 0.5rem;
+}
+
+h4{
+    font-size: 1rem;
+    
+}
+
+
+img{
+    width: 100%;
+}
+
+header{
+    width: 100%;
+    height: 400px;
+    background-image: url("./img/heroBg.png");
+    background-color: var(--header-back-color);
+    background-size: contain;
+    
+    
+}
+
+body{
+    background-color: var(--post-back-color);
+}
+
+
+
+
+
+nav{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    height: 4.5rem;
+    background-color: var(--nav-back-color);
+    box-shadow: 1px 4px 15px;
+}
+
+.nav_container{
+    display: flex;
+    width: 100vw;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.nav_container button {
+    display: none;
+    gap: 0rem;
+}
+
+#open_nav-btn{
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+#close_nav-btn{
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+
+.avartar{
+    position: relative;
+    background-color: white;
+    align-items: center;
+    
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 2px solid white;
+    border-radius: 50%;
+    box-shadow: 1px 2px 3px;
+    overflow: hidden;
+    
+
+        
+}
+
+
+.nav_items{
+   
+    position: relative;
+    display: flex;
+    gap: 2rem;
+    padding-right: 2rem;
+    
+    }
+
+
+
+.nav_items li a{
+    color: var(--category-btn-back-color);
+    
+    
+}
+
+
+.nav_items li:hover{
+    
+    border-bottom: 1.5px solid white;
+    border-radius: 10px;
+    padding: 0.1rem 0.5rem;
+    transition: var(--transition);
+}
+
+.nav_items li a:hover{
+    
+    align-items: center;
+    border-radius: 10px;
+    
+    color: yellow;
+    
+}
+
+.headtitle{
+    text-shadow: 1px 1px 3px black;
+}
+
+.nav-profile{
+    position: relative;
+    cursor: pointer;
+    align-items: center;
+    width: 8rem;
+    
+
+}
+
+
+
+
+.nav-profile ul{
+    position: absolute;
+    width: fit-content;
+    
+    box-shadow: 1px 1px 10px;
+    right: 0;
+    display: flex;
+    background-color: var(--nav-profile-back-color);
+    
+    flex-direction: column;
+    visibility: hidden;
+    opacity: 0;
+    transition: var(--transition);
+    
+    
+}
+
+/* SHOW PROFILE LIST WHEN NAV PROFILE IS HOVERED */
+.nav-profile:hover > ul {
+    visibility: visible;
+    opacity: 1;
+}
+
+.nav-profile li a{
+    color: white;
+    padding: 1rem;
+    background: var(--nav-profile-back-color);
+    display: block;
+    width:8rem;
+    font-size: medium;
+
+}
+
+
+
+
+.nav-profile ul li:last-child a {
+    
+    background-color: var(--header-back-color);
+    color: black;
+    
+}
+
+
+
+
+h2{
+  color: white;  
+}
+
+
+
+
+
+.nav-btn:hover{
+    
+    background-color: var(--header-back-color);
+}
+
+/*********   end of nav   *************
+*********************************/
+
+
+
+/*****  featured post  ******/
+.post_thumbnail{
+    margin-top: 4rem;
+    margin-bottom: 1.6rem;
+    border-radius: 5rem;
+    border: 0.5rem solid rgb(154, 154, 154);
+    overflow: hidden;
+
+    
+}
+.post:hover .post_thumbnail img {
+    cursor: pointer;
+    opacity: 80%;
+}
+
+.post_author{
+    display: flex;
+    gap:1rem;
+    margin-top: 1.2rem;
+}
+.post_author-avartar{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 3rem;
+    overflow: hidden;
+}
+
+.featured{
+    width: 100%;
+    background-color: var(--featured-back-color);
+    padding-bottom: 2rem;
+    
+    
+}
+
+.featured_container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+   
+
+}
+
+.featured .post_thumbnail{
+    height: fit-content;
+    
+}
+
+
+
+.post_body{
+
+    width: 100%;
+    font-size: large;
+    font-weight: 500;
+    color: var(--featured-body-font-color);
+}
+
+.post_title a{
+    color: white;
+    font-size: var(--posts-title-font-size);
+}
+
+
+/*********   category button   *************
+*********************************/
+
+.category_btn{
+    background: var(--category-btn-back-color);
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    text-align: center;
+    color: white;
+}
+
+.category_btn:hover{
+    color: yellow;
+}
+
+/*********   end of featured*********************************/
+
+/*********   posts   *************
+*********************************/
+
+.post_container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+    margin-bottom: 5rem;
+}
+
+.posts{
+    background:var(--post-back-color);
+    padding-top:0.2rem ;
+    padding-bottom:1.2rem ;
+}
+.post_info p {
+    color: rgb(186, 186, 186);
+}
+small{
+    color: aqua;
+}
+
+
+/*********   end of posts   *************
+*********************************/
+
+/*********   category container   *************
+*********************************/
+.category{
+    width: 100%;
+    background-color: var(--category-back-color);
+    font-size: large;
+    
+    
+    
+    
+}
+.category_container{
+    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-bottom: 2rem ;
+    
+    
+    
+    
+    
+    
+}
+.category_container a {
+    padding: 1rem 1rem;
+    width: 10rem;
+    
+    
+
+}
+
+.category h4{
+    text-align: center;
+    padding: 2rem;
+} 
+
+
+/*********   end of category container   *************
+*********************************/
+
+/*********   footer container   *************
+*********************************/
+.footer{
+width: 100%;
+background-color: var(--footer-back-color);
+padding-bottom: 2rem;
+
+}
+
+.social_handle {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    
+   
+}
+
+.social_handle a{
+    width: 2.5rem;
+    height: 2.5rem;
+    
+    
+}
+
+.social_handle a:hover img{
+    opacity: 60%;
+}
+
+.footer h4{
+    text-align: center;
+    padding: 2rem;
+    font-size: xx-large;
+} 
+
+.footer_nav{
+    
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.footer_nav a{
+    color: var(--footer-nav-font-color);
+    font-size: x-large;
+   
+}
+
+.footer_container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    
+}
+
+.footer_container a:hover{
+    
+    padding: 10px 15px;
+    transition: var(--transition);
+    color: var(--header-back-color);
+}
+
+
+.copyrigh h5{
+    color: white;
+    
+}
+.copyrigh ul{
+    display: flex; 
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+/*********   Blog page styling  *****
+*********************************/
+
+/*removing hero from blog*/
+.blog_header{
+    height: 4.6rem;
+}
+
+
+.search{
+    width: 100%;
+    background-color: var(--featured-back-color);
+    padding-bottom: 1rem;
+    
+    
+    
+}
+
+.search_container{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2rem;
+   
+
+    
+}
+
+.textfield{
+    background-color: transparent;
+    padding: 0.8rem 0.7rem;
+    border: 1px solid white;
+    border-radius: 50px;
+    width: 18rem;
+    font-size: medium;
+    color: white;
+    
+
+}
+
+.textfield::placeholder{
+    color: rgb(174, 174, 174);
+    font-style: italic;
+    
+}
+
+
+.seachBtn{
+    border: 1px solid white;
+    border-radius: 50px;
+    background: var(--category-btn-back-color);
+    color: white;
+    padding: 0.5rem;
+}
+
+.seachBtn:hover{
+    border-color: var(--header-back-color);
+    transition: var(--transition);
+    padding: 0.6rem;
+    cursor: pointer;
+    
+}
+
+/*********   End of Blog page styling  *****
+*********************************/
+
+
+
+/*********   read post page styling  *****
+*********************************/
+
+.read_post{
+    width: 50%;
+    border: 1px solid yellow;
+    border-radius: 50px;
+    padding: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    
+}
+
+
+/*********  End of read post page styling  *****
+*********************************/
+
+
+/*********  category post page styling  *****
+*********************************/
+.category_header{
+    
+    height: 12rem;
+    display: grid;
+    gap: 1rem;
+    place-items:  center;
+    padding-top: 2rem;
+}
+
+
+
+/*********  End of category post page styling  *****
+*********************************/
+
+
+
+/*********  About page styling  *****
+*********************************/
+.about{
+background:var(--post-back-color);
+    padding-top:0.2rem ;
+    padding-bottom:1.2rem ;
+}
+
+.about_page{
+    height: 18rem;
+    display: grid;
+    gap: 1rem;
+    place-items:  center;
+    padding-top: 2rem;
+}
+
+/*********  End of About page styling  *****
+*********************************/
+
+
+
+/*********  Sign up page styling  *****
+*********************************/
+.form_section{
+    display: grid;
+    place-items: center;
+    
+    height: 100vh;
+}
+
+.form_section_container{
+    width: 40%;
+    color: white;
+}
+.form_section_container a{
+    color: var(--nav-back-color);
+}
+
+.form_section_container a:hover{
+    color: white;
+}
+
+.alert_message{
+    
+    padding: 0.8rem 1.4rem;
+    margin-bottom: 1rem;
+    border-radius: var(--border-radius);
+}
+
+.alert_message.error{
+    background: var(--color-red-light);
+    color: var(--color-red);
+}
+
+.alert_message.success{
+    background: var(--color-green-light);
+    color: var(--color-green);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    
+
+}
+.form_control{
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+input,textarea, select{
+    padding: 0.4rem 1.4rem;
+    background-color: var( --gray-color);
+    border-radius: var(--border-radius);
+    resize: none;
+    color: white;
+}
+
+form button{
+    width: 100px;
+}
+
+#thumbnail:hover{
+    cursor: pointer;
+}
+
+.form_section small{
+    margin-top: 1rem;
+    display: block;
+}
+
+/*********  End of Sign up page styling  *****
+*********************************/
+
+
+
+/*********  edit post page styling  *****
+*********************************/
+
+.form_control.inline{
+    flex-direction: row;
+    align-items: center;
+
+}
+
+/*********  End of edit post page styling  *****
+*********************************/
+
+
+
+
+/*********  Dashboard page styling  *****
+*********************************/
+.category_btn.sn{
+    padding: 0.3rem 0.7rem;
+    font-size: 0.8rem;
+    background-color: var(--post-back-color);
+    
+}
+
+.category_btn.sn.danger{
+    background-color: var(--color-red);
+}
+
+
+
+.dashboard{
+    margin-top: 3rem;
+}
+
+.dashboard_container{
+    display: grid;
+    grid-template-columns: 14rem auto;
+    gap: 1rem;
+    background: var(--secondary);
+    
+    margin-bottom: 5rem;
+}
+
+.dashboard aside img{
+    width:2rem;
+}
+
+.dashboard aside a{
+    background-color: var(--color-green-light);
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.6rem;
+}
+.dashboard aside ul li:not(:last-child) a{
+border-bottom: 1px solid var(--nav-back-color);
+
+
+}
+.dashboard main{
+    padding-right: 0.5rem;
+}
+
+.dashboard aside a:hover{
+    background-color: var(--category-btn-back-color);
+    transition: var(--transition);
+}
+.dashboard aside a.active{
+    background-color: var(--category-btn-back-color);
+}
+
+/*********   toggle button   *************
+*********************************/
+
+.sidebar_toggle{
+    display:none;
+}
+
+
+
+
+
+
+.dashboard main h2{
+    margin: 0rem 0rem 2rem 0rem;
+    line-height: 1;
+   
+}
+
+.dashboard main table{
+    width: 100%;
+    text-align: left;
+}
+
+.dashboard main table thead{
+    background-color: var(--category-btn-back-color);
+    color: white;
+}
+
+.dashboard main table td{
+    
+    padding: 0.8rem;
+    border-bottom: 1px solid var(--post-back-color);
+    font-size: 1rem;
+
+    color: white;
+}
+
+.dashboard main table tr:hover td{
+    background-color: var(--category-back-color);
+    transition: var(--transition);
+}
+
+
+/*********  End of dashboard page styling  *****
+*********************************/
+
+
+
+
+
+
+/*********   media query for (tablets)*****
+*********************************/
+
+@media  screen and (max-width:1080px){
+    .container{
+        width: 90%;
+       
+    }
+    .nav_container button {
+        display: inline-block;
+        
+
+        
+
+    }
+   
+
+    .nav_items{
+        position: absolute;
+        flex-direction: column;
+        top: 100%;
+        right: 0;
+        width: 12rem;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 0;
+        
+        display: none;
+        
+    }
+
+    .nav_items li{
+        display: flex;
+        width: inherit;
+        height: 4.5rem;
+        align-items: center;
+        box-shadow: -2rem 3rem 7rem rgba(0,0,0,0.7);
+        background: rgb(41, 41, 41);
+        border-top: 1px solid rgb(80, 80, 80);
+        transition: var(--transition);
+        
+    }
+
+    .nav_items li:hover a{
+        color: var(--header-back-color);
+        cursor: pointer;
+    }
+
+    .nav_items li a{
+        border-radius: 0;
+        width: 100%;
+        height: 100%;
+        
+        color: white;
+        padding: 0rem 2rem;
+        
+        
+        align-items: center;
+    }
+
+    #close_nav-btn{
+        display: none;
+    }
+
+     
+    
+    
+
+    .post_container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4rem;
+        margin-bottom: 5rem;
+    }
+
+    .category{
+        width: 100%;
+    }
+
+    .category_container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding-bottom: 2rem ;
+    }
+
+    .nav-profile{
+        padding-left: 2rem;
+    }
+
+    .footer{
+        width: 100%;
+    }
+    
+    .footer_container{
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    
+    }
+
+
+/*********   dashboard styling for tablet*****
+*********************************/
+
+.dashboard_container{
+    grid-template-columns: 4.3rem auto;
+    padding: 0;
+    background: transparent;
+    
+}
+
+
+
+.dashboard h5{
+    display: none;
+}
+
+.dashboard main table thead{
+    display: none;
+}
+
+.dashboard main table tr{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.dashboard main table tr:nth-child(even){
+    background: var(--secondary);
+}
+
+
+.dashboard main table tr:hover td{
+background-color: transparent;
+}
+
+.dashboard main table td{
+    
+    
+    border-bottom: 1px solid var(--color-green);
+    
+}
+
+/*********   End if dashboard styling for tablet*****
+*********************************/
+
+}
+
+
+
+/*********   media query for phones)*****
+*********************************/
+
+@media screen and (max-width: 600px){
+
+    .container{
+        width: 90%;
+        
+    }
+
+    .featured_container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .nav_container button {
+        display: flex;
+    }
+
+    .post_container{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 5rem;
+    }
+    .category{
+        width: 100%;
+    }
+
+    .category_container{
+    
+        display: grid;
+        grid-template-columns: 1fr;
+        padding-bottom: 2rem ;
+        
+        
+        
+        
+    }
+
+
+
+
+    .footer{
+        width: 100%;
+    }
+
+    .footer_container{
+        display: grid;
+        grid-template-columns: 1fr;
+        
+    }
+
+
+
+    /*********   dashboard styling for phones*****
+*********************************/
+
+.dashboard{
+    margin-top: 3rem;
+    
+    
+}
+
+.dashboard_container{
+    grid-template-columns: 1fr;
+    gap: 0;
+}
+
+.dashboard main{
+    margin: 0;
+}
+
+.dashboard main h2{
+    margin-top: 1rem;
+}
+
+.dashboard aside{
+    position: fixed;
+    box-shadow: 2rem 0 4rem rgba(0,0,0,0.4);
+    left: -100%;
+    height: 100vh;
+    transition: var(--transition);
+    background: var(--color-green-light);
+}
+
+/*********   End if dashboard styling for phones*****
+*********************************/
+
+
+
+
+/*********   toggle button   *************
+*********************************/ 
+.dashboard .sidebar_toggle{
+    display: inline-block;
+    width: 4rem;
+    background: var(--nav-back-color);
+    position: fixed;
+    right: 0;
+    bottom: 4rem;
+    z-index: 1;
+    border-radius: 50% 0 0 50%;
+    cursor: pointer;
+    box-shadow: -1rem 0 2rem rgba(0,0,0,0.4);
+
+}
+
+
+
+.dashboard aside a h5{
+display: inline-block;
+}
+#hide_sidebar-btn{
+    display: none;
+}
+
+
+
+}
