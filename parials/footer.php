@@ -17,14 +17,16 @@
     <article class="category_con">
         <h4>CATEGORIES</h4>
 
-        <div class="container footer_nav">
+<?php
+    $all_categories_query = "SELECT * FROM categories";
+    $all_categories = mysqli_query($connection, $all_categories_query);
+    
+?>
 
-            <a href="">Arts</a>
-            <a href="">Science and Tech</a>
-            <a href="">Business</a>
-            <a href="">Entertainment</a>
-            <a href="">Education</a>
-            <a href="">Uncategories</a>
+        <div class="container footer_nav">
+            <?php while($category= mysqli_fetch_assoc($all_categories)) : ?>
+            <a href="<?= ROOT_URL ?>category-post.php?id=<?= $category['id'] ?>"><?= $category['title'] ?></a>
+            <?php endwhile ?>
         </div>
     </article>
 

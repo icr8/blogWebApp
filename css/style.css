@@ -519,6 +519,7 @@ padding-bottom: 2rem;
 
 .search_container{
     display: flex;
+    flex-direction: row;
     gap: 1rem;
     align-items: center;
     justify-content: center;
@@ -549,10 +550,12 @@ padding-bottom: 2rem;
 
 .seachBtn{
     border: 1px solid white;
-    border-radius: 50px;
+    border-radius: 20px;
     background: var(--category-btn-back-color);
     color: white;
     padding: 0.5rem;
+    font-size: large;
+    font-weight: bold;
 }
 
 .seachBtn:hover{

@@ -1,21 +1,22 @@
 <?php 
     include 'parials/header.php';
+
+    //fetch 9 posts frompost table in database
+    $query = "SELECT * FROM posts ORDER BY date_time DESC";
+    $posts = mysqli_query($connection, $query);
 ?>
     <!--  End header  -->
 
     <!--  body  -->
    <section class="search">
 
-    <div class="container search_container">
-
-        <input class="textfield" type="text" placeholder="Enter your search keyword...">
-        <button class="seachBtn" ><img src="img\Search-Button-White-PNG.png" width="20px" height="20px" alt=""></button>
-
-    </div>
+    <form class="container search_container" action="<?= ROOT_URL ?>search.php" method="GET">
+        <input class="textfield" type="text" name="search" placeholder="Enter your search keyword...">
+        <input type="submit" name="submit" class="seachBtn" value="SEARCH" >
+    </form>
+   
 
     <div class="container featured_container">
-
-        
 
     </div>
 
@@ -29,91 +30,56 @@
 
 
    <!--  start of posts -->
+
+   
    <section class="posts">
         <div class="container post_container">
+
+        <?php while($post = mysqli_fetch_assoc($posts)) : ?>
             <article class="post">
                 <div class="post_thumbnail">
-                    <a href="post.html"><img src="img\albLogo.jpg" alt=""></a>
+                    <a href="<?= ROOT_URL ?>post.php?id=<?= $post['id'] ?>"><img src="img/images/<?= $post['thumbnail'] ?>" alt=""></a>
                 </div>
                 <div class="post_info">
-                    <a href="" class="category_btn">wildlife</a>
-                    <h2 class="post_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, iusto.</h3>
-                    <p  class="post_body">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus est illum officiis consectetur voluptas quam animi nostrum, obcaecati cum. Sunt facilis natus eveniet.</p>
+
+                <?php
+        //fetch category from categories table using category_id of post
+        $category_id = $post['category_id'];
+        $category_query = "SELECT * FROM categories WHERE id=$category_id";
+        $category_result = mysqli_query($connection, $category_query);
+        $category = mysqli_fetch_assoc($category_result);
+        
+        ?>
+
+                    <a href="<?= ROOT_URL ?>category-post.php?id=<?= $post['category_id'] ?>" class="category_btn"><?= $category['title'] ?></a>
+                    <h2 class="post_title"><a href="<?= ROOT_URL ?>post.php?id=<?= $post['id'] ?>"><?= $post['title'] ?></a></h3>
+                    <p  class="post_body"><?= substr($post['body'], 0, 300)  ?>...</p>
                     <div class="post_author">
+
+                    <?php
+                $author_id = $post['author_id'];
+                $author_query = "SELECT * FROM users WHERE id= $author_id";
+                $author_result = mysqli_query($connection, $author_query);
+                $author = mysqli_fetch_assoc($author_result);
+
+                ?>
+
                         <div class="post_author-avartar">
-                            <img src="img\albLogo.jpg" alt="">
+                            <img src="img/images/<?= $author['avatar'] ?>" alt="">
                         </div>
                         <div class="post_author-info">
-                            <h4>By: Emmanuel Agyemang</h5>
-                            <small>January 05, 2024 - 09:20 </small>
+                            <h4>By: <?= "{$author['firstname']} {$author['lastname']}" ?></h5>
+                            <small>
+                            <?= date("M d, Y - H:i", strtotime($post['date_time'])) ?>
+                            </small>
                         </div>
                     </div>
                 </div>
 
             </article>
+            <?php endwhile ?>
 
-            <article class="post">
-                <div class="post_thumbnail">
-                    <a href="post.html"><img src="img\albLogo.jpg" alt=""></a>
-                </div>
-                <div class="post_info">
-                    <a href="" class="category_btn">wildlife</a>
-                    <h2 class="post_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, iusto.</h3>
-                    <p  class="post_body">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus est illum officiis consectetur voluptas quam animi nostrum, obcaecati cum. Sunt facilis natus eveniet.</p>
-                    <div class="post_author">
-                        <div class="post_author-avartar">
-                            <img src="img\albLogo.jpg" alt="">
-                        </div>
-                        <div class="post_author-info">
-                            <h4>By: Emmanuel Agyemang</h5>
-                            <small>January 05, 2024 - 09:20 </small>
-                        </div>
-                    </div>
-                </div>
-
-            </article>
-
-            <article class="post">
-                <div class="post_thumbnail">
-                    <a href="post.html"><img src="img\albLogo.jpg" alt=""></a>
-                </div>
-                <div class="post_info">
-                    <a href="" class="category_btn">wildlife</a>
-                    <h2 class="post_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, iusto.</h3>
-                    <p  class="post_body">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus est illum officiis consectetur voluptas quam animi nostrum, obcaecati cum. Sunt facilis natus eveniet.</p>
-                    <div class="post_author">
-                        <div class="post_author-avartar">
-                            <img src="img\albLogo.jpg" alt="">
-                        </div>
-                        <div class="post_author-info">
-                            <h4>By: Emmanuel Agyemang</h5>
-                            <small>January 05, 2024 - 09:20 </small>
-                        </div>
-                    </div>
-                </div>
-
-            </article>
-
-            <article class="post">
-                <div class="post_thumbnail">
-                    <a href="post.html"><img src="img\albLogo.jpg" alt=""></a>
-                </div>
-                <div class="post_info">
-                    <a href="" class="category_btn">wildlife</a>
-                    <h2 class="post_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, iusto.</h3>
-                    <p  class="post_body">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus est illum officiis consectetur voluptas quam animi nostrum, obcaecati cum. Sunt facilis natus eveniet.</p>
-                    <div class="post_author">
-                        <div class="post_author-avartar">
-                            <img src="img\albLogo.jpg" alt="">
-                        </div>
-                        <div class="post_author-info">
-                            <h4>By: Emmanuel Agyemang</h5>
-                            <small>January 05, 2024 - 09:20 </small>
-                        </div>
-                    </div>
-                </div>
-
-            </article>
+            
         </div>
 
    </section>
@@ -122,20 +88,23 @@
 
     <!--  Category section  -->
 
-    <section class=" category">
+    <section class="container category">
         
+<?php
+    $all_categories_query = "SELECT * FROM categories";
+    $all_categories = mysqli_query($connection, $all_categories_query);
+    
+?>
         <h4>CATEGORIES</h4>
         <div class="container category_container">
-            <a class="category_btn" href="">Arts</a>
-            <a class="category_btn" href="">Science and Tech</a>
-            <a class="category_btn" href="">Business</a>
-            <a class="category_btn" href="">Entertainment</a>
-            <a class="category_btn" href="">Education</a>
-            <a class="category_btn" href="">Uncategories</a>
-        </div>
+            <?php while($category= mysqli_fetch_assoc($all_categories)) : ?>
+            <a class="category_btn" href="<?= ROOT_URL ?>category-post.php?id=<?= $category['id'] ?>"><?= $category['title'] ?></a>
+            <?php endwhile ?>
+    </div>
 
     </section>
 
+    <!--  End body  -->
 
     <?php 
     include 'parials/footer.php';

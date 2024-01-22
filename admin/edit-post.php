@@ -26,7 +26,10 @@
 
         <form action="<?= ROOT_URL ?>admin/edit-post-logic.php" enctype="multipart/form-data" method="POST">
 
-            <input type="text" value="<?= $post['title'] ?>" placeholder="title">
+            <input type="hidden" name="id" value="<?= $post['id'] ?>" >
+            <input type="hidden" name="previous_thumbnail_name" value="<?= $post['thumbnail'] ?>" >
+
+            <input type="text" name="title" value="<?= $post['title'] ?>" placeholder="title">
 
             <select name="category" >
                 <?php while($category = mysqli_fetch_assoc($categories)) : ?>
